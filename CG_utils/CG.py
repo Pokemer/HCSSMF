@@ -671,35 +671,6 @@ def evalfandg(x, p):
 
 
 class CG():
-    """Implements L-BFGS algorithm, heavily inspired by `minFunc
-    <https://www.cs.ubc.ca/~schmidtm/Software/minFunc.html>`_.
-
-    .. warning::
-        This optimizer doesn't support per-parameter options and parameter
-        groups (there can be only one).
-
-    .. warning::
-        Right now all parameters have to be on a single device. This will be
-        improved in the future.
-
-    .. note::
-        This is a very memory intensive optimizer (it requires additional
-        ``param_bytes * (history_size + 1)`` bytes). If it doesn't fit in memory
-        try reducing the history size, or use a different algorithm.
-
-    Args:
-        lr (float): learning rate (default: 1)
-        max_iter (int): maximal number of iterations per optimization step
-            (default: 20)
-        max_eval (int): maximal number of function evaluations per optimization
-            step (default: max_iter * 1.25).
-        tolerance_grad (float): termination tolerance on first order optimality
-            (default: 1e-5).
-        tolerance_change (float): termination tolerance on function
-            value/parameter changes (default: 1e-9).
-        history_size (int): update history size (default: 100).
-        line_search_fn (str): either 'strong_wolfe' or None (default: None).
-    """
         
     def __init__(self,
                 p,
