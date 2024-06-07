@@ -26,9 +26,17 @@ class P():
         self.AS = self.A2@S
         self.YS = Y@S
         self.alpha = alpha
-        if random_init:
+        if random_init == True:
             print('Random init Z, and the first 5 elements are:', end = '')
             Z = 2*torch.rand((self.c, lun), dtype=S.dtype)-1
+            print(Z[0,:5].numpy())
+        elif random_init == 'neg':
+            print('Random and negtive initialization of Z, and the first 5 elements are:', end = '')
+            Z = -torch.rand((self.c, lun), dtype=S.dtype)
+            print(Z[0,:5].numpy())
+        elif random_init == 'pos':
+            print('Random and positive initialization of Z, and the first 5 elements are:', end = '')
+            Z = torch.rand((self.c, lun), dtype=S.dtype)
             print(Z[0,:5].numpy())
         else:
             Z = torch.zeros((self.c, lun), dtype=S.dtype)
